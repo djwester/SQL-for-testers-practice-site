@@ -1,5 +1,5 @@
 -- Empty the tables
-DELETE FROM kart;
+DELETE FROM cart;
 DELETE FROM users;
 DELETE FROM products;
 DELETE FROM categories;

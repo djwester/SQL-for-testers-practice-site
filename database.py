@@ -28,7 +28,7 @@ conn.execute('''CREATE TABLE products
 		FOREIGN KEY(categoryId) REFERENCES categories(categoryId)
 		)''')
 
-conn.execute('''CREATE TABLE kart
+conn.execute('''CREATE TABLE cart
 		(userId INTEGER,
 		productId INTEGER,
 		FOREIGN KEY(userId) REFERENCES users(userId),

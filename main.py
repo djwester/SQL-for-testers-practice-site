@@ -35,7 +35,7 @@ def getLoginDetails():
             try:
                 cur.execute("SELECT userId, firstName FROM users WHERE email = '" + session['email'] + "'")
                 userId, firstName = cur.fetchone()
-                cur.execute("SELECT count(productId) FROM kart WHERE userId = " + str(userId))
+                cur.execute("SELECT count(productId) FROM cart WHERE userId = " + str(userId))
                 noOfItems = cur.fetchone()[0]
             except:
                 loggedIn = False
@@ -219,7 +219,7 @@ def addToCart():
             cur.execute("SELECT userId FROM users WHERE email = '" + session['email'] + "'")
             userId = cur.fetchone()[0]
             try:
-                cur.execute("INSERT INTO kart (userId, productId) VALUES (?, ?)", (userId, productId))
+                cur.execute("INSERT INTO cart (userId, productId) VALUES (?, ?)", (userId, productId))
                 conn.commit()
                 msg = "Added successfully"
             except:
@@ -238,7 +238,7 @@ def cart():
         cur = conn.cursor()
         cur.execute("SELECT userId FROM users WHERE email = '" + email + "'")
         userId = cur.fetchone()[0]
-        cur.execute("SELECT products.productId, products.name, products.price, products.image FROM products, kart WHERE products.productId = kart.productId AND kart.userId = " + str(userId))
+        cur.execute("SELECT products.productId, products.name, products.price, products.image FROM products, cart WHERE products.productId = cart.productId AND cart.userId = " + str(userId))
         products = cur.fetchall()
     totalPrice = 0
     for row in products:
@@ -255,7 +255,7 @@ def checkout():
         cur = conn.cursor()
         cur.execute("SELECT userId FROM users WHERE email = '" + email + "'")
         userId = cur.fetchone()[0]
-        cur.execute("SELECT products.productId, products.name, products.price, products.image FROM products, kart WHERE products.productId = kart.productId AND kart.userId = " + str(userId))
+        cur.execute("SELECT products.productId, products.name, products.price, products.image FROM products, cart WHERE products.productId = cart.productId AND cart.userId = " + str(userId))
         products = cur.fetchall()
     totalPrice = 0
     for row in products:
@@ -277,7 +277,7 @@ def removeFromCart():
         cur.execute("SELECT userId FROM users WHERE email = '" + email + "'")
         userId = cur.fetchone()[0]
         try:
-            cur.execute("DELETE FROM kart WHERE userId = " + str(userId) + " AND productId = " + str(productId))
+            cur.execute("DELETE FROM cart WHERE userId = " + str(userId) + " AND productId = " + str(productId))
             conn.commit()
             msg = "removed successfully"
         except:
