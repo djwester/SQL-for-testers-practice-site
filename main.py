@@ -32,10 +32,15 @@ def getLoginDetails():
             noOfItems = 0
         else:
             loggedIn = True
-            cur.execute("SELECT userId, firstName FROM users WHERE email = '" + session['email'] + "'")
-            userId, firstName = cur.fetchone()
-            cur.execute("SELECT count(productId) FROM kart WHERE userId = " + str(userId))
-            noOfItems = cur.fetchone()[0]
+            try:
+                cur.execute("SELECT userId, firstName FROM users WHERE email = '" + session['email'] + "'")
+                userId, firstName = cur.fetchone()
+                cur.execute("SELECT count(productId) FROM kart WHERE userId = " + str(userId))
+                noOfItems = cur.fetchone()[0]
+            except:
+                loggedIn = False
+                firstName = ''
+                noOfItems = 0
     conn.close()
     return (loggedIn, firstName, noOfItems)
 
