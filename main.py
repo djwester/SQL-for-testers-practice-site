@@ -267,6 +267,21 @@ def checkout():
 
 @app.route("/payment")
 def payment():
+    if 'email' not in session:
+        return redirect(url_for('loginForm'))
+    email = session['email']
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT userId FROM users WHERE email = '" + email + "'")
+        userId = cur.fetchone()[0]
+        try:
+            cur.execute("DELETE FROM cart WHERE userId = " + str(userId))
+            conn.commit()
+            msg = "removed successfully"
+        except:
+            conn.rollback()
+            msg = "error occured"
+    conn.close()
     return render_template("payment.html")
 
 @app.route("/removeFromCart")
