@@ -74,21 +74,21 @@ def getLoginDetails():
 #         return redirect(url_for('root'))
 
 #Remove item from cart
-@app.route("/removeItem")
-def removeItem():
-    productId = request.args.get('productId')
-    with sqlite3.connect('database.db') as conn:
-        try:
-            cur = conn.cursor()
-            cur.execute('DELETE FROM products WHERE productID = ' + productId)
-            conn.commit()
-            msg = "Deleted successsfully"
-        except:
-            conn.rollback()
-            msg = "Error occured"
-    conn.close()
-    print(msg)
-    return redirect(url_for('root'))
+# @app.route("/removeItem")
+# def removeItem():
+#     productId = request.args.get('productId')
+#     with sqlite3.connect('database.db') as conn:
+#         try:
+#             cur = conn.cursor()
+#             cur.execute('DELETE FROM products WHERE productID = ' + productId)
+#             conn.commit()
+#             msg = "Deleted successsfully"
+#         except:
+#             conn.rollback()
+#             msg = "Error occured"
+#     conn.close()
+#     print(msg)
+#     return redirect(url_for('root'))
 
 #Display all items of a category
 @app.route("/displayCategory")
@@ -218,8 +218,11 @@ def addToCart():
             cur = conn.cursor()
             cur.execute("SELECT userId FROM users WHERE email = '" + session['email'] + "'")
             userId = cur.fetchone()[0]
+            cur.execute("SELECT stock from products WHERE productId = %s"%productId)
+            number_in_stock = int(cur.fetchone()[0])
             try:
                 cur.execute("INSERT INTO cart (userId, productId) VALUES (?, ?)", (userId, productId))
+                cur.execute("UPDATE products SET stock=%s WHERE productId=%s"%(number_in_stock-1,productId))
                 conn.commit()
                 msg = "Added successfully"
             except:
@@ -276,8 +279,11 @@ def removeFromCart():
         cur = conn.cursor()
         cur.execute("SELECT userId FROM users WHERE email = '" + email + "'")
         userId = cur.fetchone()[0]
+        cur.execute("SELECT stock from products WHERE productId = %s"%productId)
+        number_in_stock = int(cur.fetchone()[0])
         try:
             cur.execute("DELETE FROM cart WHERE userId = " + str(userId) + " AND productId = " + str(productId))
+            cur.execute("UPDATE products SET stock=%s WHERE productId=%s"%(number_in_stock+1,productId))
             conn.commit()
             msg = "removed successfully"
         except:
