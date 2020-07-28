@@ -29,7 +29,7 @@ VALUES
 (6,"Tester Tshirt 2",14.99,"Men's Tshirt 5","Testers-are-not-scared-easily.jpg",4,1),
 (7,"Men's Blank Tshirt 2",7.99,"Men's Tshirt 6","plain-t-shirts-free-samples-men-s.jpg",5,1),
 (8,"Women's Tshirt 2",6.99,"Women Tee 2","0204_Empowered-Women_Grey-Ladies-Tee_grande.jpg",1,2),
-(9,"Women Tshirt 3",5.99,"Women Tee 3","GeekTShirtWomens.jpg",2,2),
+(9,"Women's Tshirt 3",5.99,"Women Tee 3","GeekTShirtWomens.jpg",2,2),
 (10,"Tester Tshirt 3",6.99,"Women Tee 3","software_testing_superpower.jpg",3,2),
 (11,"Women's Tshirt 4",7.99,"Women Tee 4","moreCoffee.jpg",4,2),
 (12,"Tester Tshirt 4",9.99,"Women Tee 5","testingInProduction.jpg",5,	2),
