@@ -21,18 +21,18 @@ VALUES
 -- re-initialize the products table
 INSERT INTO products
 VALUES
-(1,"Men's Polo",9.99, "Men's Polo Shirt","MensPolo.jpg",2,1),
-(2,"Women's Tshirt 1",4.99,"Women Tee 1","relaxed_fit-front-f8f8f8.jpg",1,2),
-(3,"Tester Tshirt",5.99,"Men's Tshirt 2","testers-freakin-awesome.jpg",1,1),
-(4,"Men's Tshirt",9.99,"Men's Tshirt 3","BrightIdea.jpg",2,1),
-(5,"Men's Blank Tshirt",10.99,"Men's Tshirt 4","Blank-Tshirts-Red.jpg",3,1),
-(6,"Tester Tshirt 2",14.99,"Men's Tshirt 5","Testers-are-not-scared-easily.jpg",4,1),
-(7,"Men's Blank Tshirt 2",7.99,"Men's Tshirt 6","plain-t-shirts-free-samples-men-s.jpg",5,1),
-(8,"Women's Tshirt 2",6.99,"Women Tee 2","0204_Empowered-Women_Grey-Ladies-Tee_grande.jpg",1,2),
-(9,"Women's Tshirt 3",5.99,"Women Tee 3","GeekTShirtWomens.jpg",2,2),
-(10,"Tester Tshirt 3",6.99,"Women Tee 3","software_testing_superpower.jpg",3,2),
-(11,"Women's Tshirt 4",7.99,"Women Tee 4","moreCoffee.jpg",4,2),
-(12,"Tester Tshirt 4",9.99,"Women Tee 5","testingInProduction.jpg",5,	2),
-(13,"TV",499.99,"TV 1","l_10161603_001.jpg",1,3),
-(14,"Computer",1049.99,"Computer 1","macbook-select-space-gray-201706.jpg",1,4);
+(1,"Men's Polo",9.99, "Men's Polo Shirt","Men_s_polo.jpg",2,1),
+(2,"Women's t-shirt",4.99,"Women Tee hip hip","hip_hip.jpg",1,2),
+(3,"Tester's t-shirt",5.99,"it's not a bug it's a feature","featureNotBug.jpg",1,1),
+(4,"Men's Blank t-shirt",9.99,"Blank black men's t-shirt","Men_s-tshirt-black.jpg",2,1),
+(5,"Men's Blank t-shirt 2",10.99,"Blank white men's t-shirt","Men_s-blank-Tshirt2.jpg",3,1),
+(6,"Agile t-shirt",14.99,"kid wearing agile t-shirt","agile.jpg",4,2),
+(7,"Tester's t-shirt 2",7.99,"Beta testing catches misteaks","misteaks.jpg",5,2),
+(8,"Tester's t-shirt 3",6.99,"You can't scare me I'm a software tester","can_t_scare.jpg",1,2),
+(9,"Women's t-shirt 2",5.99,"There are no bugs just todos","NoBugs.jpg",2,2),
+(10,"Tester's t-shirt 3",6.99,"Testing t-shirt that says QA","QAer.jpg",3,1),
+(11,"Tester's t-shirt 4",7.99,"Coffee Test Eat Sleep Repeat","tester.jpg",4,1),
+(12,"Computer",9.99,"A Generic Computer","computer2.jpg",5,	4),
+(13,"TV",499.99,"TV 1","TV.jpg",1,3),
+(14,"Computer 2",1049.99,"Generic Computer","computer.jpg",1,4);
 
