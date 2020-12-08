@@ -15,6 +15,10 @@ Once you have it installed you will need to install the flask library. You can e
 
 ```pip install flask```
 
+You will also need to have the requests module installed. You can once again install this with pip using the following command
+
+```pip install requests```
+
 ## Setup flask
 In order to use flask you will need to tell it what application you want to run. In this case that application is called "main" and so to set it up you will need to create an environment variable called `FLASK_APP` and set the value to `main`. On a Windows machine that would look like 
 
