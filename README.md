@@ -11,13 +11,33 @@ In order to run this application locally you will need python 3 with the flask l
 
 If you do not have python 3 on your computer you can download and install it from the python website - https://www.python.org/downloads/
 
-Once you have it installed you will need to install the flask library. You can easily do this with pip
+### venv
+It is very helpful to run in a virtual environment. You can easily create one by using venv:
+```bash
+python -m venv sql_venv
+```
+and then activate it.  On windows you activate like this:
 
-```pip install flask```
+```cmd
+sql_venv\Scripts\activate.bat
+```
+and on Mac like this:
+
+```bash
+source sql_venv/bin/activate
+```
+
+You will then need to install the flask library. You can easily do this with pip
+
+```bash
+pip install flask
+```
 
 You will also need to have the requests module installed. You can once again install this with pip using the following command
 
-```pip install requests```
+```bash
+pip install requests
+```
 
 ## Setup flask
 In order to use flask you will need to tell it what application you want to run. In this case that application is called "main" and so to set it up you will need to create an environment variable called `FLASK_APP` and set the value to `main`. On a Windows machine that would look like 
@@ -37,3 +57,31 @@ With flask setup you are ready to start running the application. Simply type the
 ```flask run```
 
 This will start up the application for you and you can go to `http://127.0.0.1:5000/` to see the application!
+
+## Trouble Shooting
+If you get an error like this:
+```python
+Usage: flask run [OPTIONS]
+Try 'flask run --help' for help.
+
+Error: Could not import 'main'.
+```
+You are most likely not in the correct directory. Please ensure that you are running the command from the folder that has the cloned repository.
+
+You can check your working directory on Windows:
+```cmd
+cd
+```
+and on Mac:
+```bash
+pwd
+```
+
+You should see a path that looks something like this:
+
+```bash
+/Users/dwesterveld/dave-apps/SQL-for-testers-practice-site
+```
+The most important thing to note is that the last part of the path shows that you are in the `SQL-for-testers-practice-site` directory. If you are not, you will need to change directories so that you are in the one that has the `main.py` file.
+
+You can use the `cd` commmand to change directories. So something like `cd SQL-for-testers-practice-site` if you are one directory up from the `SQL-for-testers-practice-site`
