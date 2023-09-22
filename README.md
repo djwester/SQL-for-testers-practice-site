@@ -59,6 +59,8 @@ With flask setup you are ready to start running the application. Simply type the
 This will start up the application for you and you can go to `http://127.0.0.1:5000/` to see the application!
 
 ## Trouble Shooting
+
+### Can't find main
 If you get an error like this:
 ```python
 Usage: flask run [OPTIONS]
@@ -81,7 +83,22 @@ You should see a path that looks something like this:
 
 ```bash
 /Users/dwesterveld/dave-apps/SQL-for-testers-practice-site
+
+
 ```
 The most important thing to note is that the last part of the path shows that you are in the `SQL-for-testers-practice-site` directory. If you are not, you will need to change directories so that you are in the one that has the `main.py` file.
 
 You can use the `cd` commmand to change directories. So something like `cd SQL-for-testers-practice-site` if you are one directory up from the `SQL-for-testers-practice-site`
+
+### Can't find Flask
+If you get an error like this:
+
+```cmd
+'flask' is not recognized as an internal or external command, operable program or batch file.
+```
+
+There are a few things to check. 
+1. First of all check to make sure you have installed flask (i.e. did you run `pip install flask`)?
+2. Do you have flask in your current environment? If you are using `venv` make sure you have activated the correct environment
+3. Depending on how you have setup python, it might work better to run it with `python -m flask run` 
+
